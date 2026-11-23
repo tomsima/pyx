@@ -1,0 +1,107 @@
+name: Release
+
+# Builds Pyx on Mac (Apple silicon + Intel) and Windows, then publishes a GitHub release.
+#   Tag a version:      git tag v1.1.0 && git push origin v1.1.0
+#   Or run by hand:     Actions tab > Release > Run workflow > type 1.1.0
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version number, e.g. 1.1.0 (no leading v)"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15            # Apple silicon
+            label: mac-apple-silicon
+          - os: macos-15-intel      # Intel
+            label: mac-intel
+          - os: windows-latest
+            label: windows
+    runs-on: ${{ matrix.os }}
+    env:
+      INPUT_VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Work out the version
+        shell: bash
+        run: |
+          if [ -n "$INPUT_VERSION" ]; then V="$INPUT_VERSION"; else V="${GITHUB_REF_NAME#v}"; fi
+          echo "VERSION=$V" >> "$GITHUB_ENV"
+          echo "Building Pyx $V"
+
+      # ---------- Mac ----------
+      - name: Build Mac app and disk image
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          bash packaging/build.sh "$VERSION" app-image
+          bash packaging/build.sh "$VERSION" installer
+          mkdir release
+          mv "dist/Pyx-$VERSION.dmg" "release/Pyx-$VERSION-${{ matrix.label }}.dmg"
+
+      # ---------- Windows ----------
+      - name: Make sure WiX Toolset 3 is available
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          if (-not (Get-Command candle.exe -ErrorAction SilentlyContinue)) {
+            choco install wixtoolset --no-progress -y
+            "${env:ProgramFiles(x86)}\WiX Toolset v3.14\bin" | Out-File -FilePath $env:GITHUB_PATH -Append
+          }
+
+      - name: Build Windows app, zip and installer
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          bash packaging/build.sh "$VERSION" app-image
+          mkdir release
+          powershell -NoProfile -Command "Compress-Archive -Path 'dist/Pyx' -DestinationPath 'release/Pyx-$VERSION-windows-no-install.zip'"
+          bash packaging/build.sh "$VERSION" installer
+          mv "dist/Pyx-$VERSION.exe" "release/Pyx-$VERSION.exe"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pyx-${{ matrix.label }}
+          path: release/*
+          if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      INPUT_VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: pyx-*
+          path: release
+          merge-multiple: true
+
+      - name: Publish the release
+        run: |
+          if [ -n "$INPUT_VERSION" ]; then V="$INPUT_VERSION"; else V="${GITHUB_REF_NAME#v}"; fi
+          ls -l release
+          gh release create "v$V" release/* \
+            --target "$GITHUB_SHA" \
+            --title "Pyx $V" \
+            --generate-notes
