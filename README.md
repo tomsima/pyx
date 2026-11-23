@@ -1,12 +1,12 @@
-<img width="1174" height="379" alt="pyx-github-3" src="https://github.com/user-attachments/assets/bce7ade3-2ff2-4ccd-a67c-7ae31ffbea64" />
+<img width="1174" height="379" alt="pyx-github" src="https://github.com/user-attachments/assets/b082083c-369f-4680-a7d1-3a7ec865e701" />
 
-# pyx tone analysis toolkit
+# Pyx tone analysis toolkit
 
-pyx (皮影戏) is a specialist language shadowing tool currently in development for tonal language study in the classroom. 
+Pyx (皮影戏) is a specialist language shadowing tool currently in development for tonal language study in the classroom. 
 
-pyx integrates audio shadowing capabilities with pitch and tone visualisation to address the needs of tonal language learners in the classroom. Students and instructors can observe visualised tones and make recordings that can be plotted to an overlapping contour line for instant and objective visual and aural feedback.
+Pyx integrates audio shadowing capabilities with pitch and tone visualisation to address the needs of tonal language learners in the classroom. Students and instructors can observe visualised tones and make recordings that can be plotted to an overlapping contour line for instant and objective visual and aural feedback.
 
-pyx is specifically designed for the study of Chinese languages, allowing visual insight and feedback into the actual tones of each character-associated syllable, rather than an alternative reliance on canonical tone defintions or abstracted phonological tone descriptions. The aim is to develop a useful tool for studying Chinese languages and lesser-documented dialects in particular, for which tone study remains a largely insurmountable barrier for the non-native student, but can also be used for the study of any tonal language and is intended to be adapted for independent study usage in the near future.
+Pyx is specifically designed for the study of Chinese languages, allowing visual insight and feedback into the actual tones of each character-associated syllable, rather than an alternative reliance on canonical tone defintions or abstracted phonological tone descriptions. The aim is to develop a useful tool for studying Chinese languages and lesser-documented dialects in particular, for which tone study remains a largely insurmountable barrier for the non-native student, but can also be used for the study of any tonal language and is intended to be adapted for independent study usage in the near future.
 
 The latest alpha of pyx integrates a basic version of the qTA model (quantitative Target Approximation, see Xu, Y. & Prom-on, S. (2010-present year). qTAtrainer.praat. Available from: http://www.homepages.ucl.ac.uk/~uclyyix/qTAtrainer/) for synthetic tone contour generation. This can be very helpful for seeing how stress and focus manipulate overall sentence-level tone contour:
 
