@@ -1,5 +1,6 @@
 <img width="1174" height="379" alt="pyx-github" src="https://github.com/user-attachments/assets/e6ec2779-8c3b-4e4a-949a-f9da16f7ec10" />
-Pyx (皮影戏) is a specialist language shadowing tool currently in development for tonal language study in the classroom. 
+
+Pyx (皮影戏) is a specialist language shadowing tool currently in development for tonal language study in the classroom and in self-study environments.
 
 <img width="1919" height="1012" alt="focus-analysis" src="https://github.com/user-attachments/assets/88a60ce8-f0a9-4a57-8272-db108780cd8c" />
 
