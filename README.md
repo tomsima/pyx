@@ -1,6 +1,6 @@
-<img width="1174" height="379" alt="pyx-github" src="https://github.com/user-attachments/assets/b082083c-369f-4680-a7d1-3a7ec865e701" />
+<img width="1174" height="379" alt="pyx-github" src="https://github.com/user-attachments/assets/70845d84-e1c1-4083-bb29-e4dc11035c41" />
 
-# Pyx tone analysis toolkit
+# Pyx tone visualisation toolkit
 
 Pyx (皮影戏) is a specialist language shadowing tool currently in development for tonal language study in the classroom. 
 
@@ -8,11 +8,7 @@ Pyx integrates audio shadowing capabilities with pitch and tone visualisation to
 
 Pyx is specifically designed for the study of Chinese languages, allowing visual insight and feedback into the actual tones of each character-associated syllable, rather than an alternative reliance on canonical tone defintions or abstracted phonological tone descriptions. The aim is to develop a useful tool for studying Chinese languages and lesser-documented dialects in particular, for which tone study remains a largely insurmountable barrier for the non-native student, but can also be used for the study of any tonal language and is intended to be adapted for independent study usage in the near future.
 
-The latest alpha of pyx integrates a basic version of the qTA model (quantitative Target Approximation, see Xu, Y. & Prom-on, S. (2010-present year). qTAtrainer.praat. Available from: http://www.homepages.ucl.ac.uk/~uclyyix/qTAtrainer/) for synthetic tone contour generation. This can be very helpful for seeing how stress and focus manipulate overall sentence-level tone contour:
-
-<img width="1646" height="748" alt="Screenshot From 2026-11-17 14-15-45" src="https://github.com/user-attachments/assets/f123829a-926f-48d2-997c-60e4b057bcf5" />
-
-*Blue line shows tone contour drawn from spectrogram analysis of audio, orange-dotted line shows synthetic contour using the Target Approximation model.*
+The latest alpha of pyx integrates a basic version of the qTA model (quantitative Target Approximation, see Xu, Y. & Prom-on, S. (2010-present year). qTAtrainer.praat. Available from: http://www.homepages.ucl.ac.uk/~uclyyix/qTAtrainer/) for synthetic tone contour generation. This can be very helpful for seeing how stress and focus manipulate overall sentence-level tone contour.
 
 ## Features
 
@@ -20,13 +16,12 @@ The latest alpha of pyx integrates a basic version of the qTA model (quantitativ
 - subtitle panel per segment that can be shown or hidden
 - auto and manual recording modes for shadowing audio with accompanying aural and visual feedback
 - spectrogram and algorithmic tone contour visualisation for comparison of source and shadowed tone realisation
+- initial integration of the qTA model
+- recorded audio can be compared against source audio and/or a synthetic contour and scored for accuracy
 - pitch and octave adjustment to align different voice pitches during speaker comparison
 - manual contour draw tool for missed vocal pulses and octave shift bar for easy octave correction
-- initial integration of the qTA model
 
-<img width="1646" height="748" alt="Screenshot From 2026-11-17 14-16-33" src="https://github.com/user-attachments/assets/eabda26e-00d2-4f7a-928d-07e11faa9c1f" />
-
-*Toggled visibility of the phonetic analysis window for focused audio shadowing sessions. Subtitles can also be toggled on/off for further focus. Pyx also has a built in shadowing session timer (top left).*
+<img width="1916" height="1043" alt="tone-scoring" src="https://github.com/user-attachments/assets/d1b8594f-d3bb-4b41-8f3c-5d6b1eb060d2" />
 
 ## Installation
 
