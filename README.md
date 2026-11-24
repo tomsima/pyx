@@ -4,6 +4,8 @@
 
 Pyx (皮影戏) is a specialist language shadowing tool currently in development for tonal language study in the classroom. 
 
+<img width="1919" height="1012" alt="focus-analysis" src="https://github.com/user-attachments/assets/88a60ce8-f0a9-4a57-8272-db108780cd8c" />
+
 Pyx integrates audio shadowing capabilities with pitch and tone visualisation to address the needs of tonal language learners in the classroom. Students and instructors can observe visualised tones and make recordings that can be plotted to an overlapping contour line for instant and objective visual and aural feedback.
 
 Pyx is specifically designed for the study of Chinese languages, allowing visual insight and feedback into the actual tones of each character-associated syllable, rather than an alternative reliance on canonical tone defintions or abstracted phonological tone descriptions. The aim is to develop a useful tool for studying Chinese languages and lesser-documented dialects in particular, for which tone study remains a largely insurmountable barrier for the non-native student, but can also be used for the study of any tonal language and is intended to be adapted for independent study usage in the near future.
@@ -16,12 +18,11 @@ The latest alpha of pyx integrates a basic version of the qTA model (quantitativ
 - subtitle panel per segment that can be shown or hidden
 - auto and manual recording modes for shadowing audio with accompanying aural and visual feedback
 - spectrogram and algorithmic tone contour visualisation for comparison of source and shadowed tone realisation
-- initial integration of the qTA model
-- recorded audio can be compared against source audio and/or a synthetic contour and scored for accuracy
+- integrated quantitative target approximation model
+- recorded audio can be compared against source audio and/or a synthetic contour and awarded an accuracy score
 - pitch and octave adjustment to align different voice pitches during speaker comparison
-- manual contour draw tool for missed vocal pulses and octave shift bar for easy octave correction
-
-<img width="1916" height="1043" alt="tone-scoring" src="https://github.com/user-attachments/assets/d1b8594f-d3bb-4b41-8f3c-5d6b1eb060d2" />
+- manual contour draw tool for missed vocal pulses and octave adjustment for misaligned octave correction
+- focus modelling for tone-intonation interaction analysis
 
 ## Installation
 
