@@ -1,4 +1,4 @@
-<img width="1174" height="379" alt="pyx-github" src="https://github.com/user-attachments/assets/70845d84-e1c1-4083-bb29-e4dc11035c41" />
+<img width="1174" height="379" alt="pyx-github" src="https://github.com/user-attachments/assets/e6ec2779-8c3b-4e4a-949a-f9da16f7ec10" />
 
 # Pyx tone visualisation toolkit
 
